@@ -1,15 +1,7 @@
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Forms</title>
-</head>
-<body>
-
     <h1>Create User Profile</h1>
 
-    <form action="/users" class="new_user" id="new_user" method="post">
+    <%# <form action="/users" class="new_user" id="new_user" method="post">
         <label for="username">Username:</label>
         <input id="username" name="user[username]" type="text"><br><br>
 
@@ -20,7 +12,16 @@
         <input id="password" name="user[password]" type="text"><br><br>
         
         <input type="submit" value="Submit">
-    </form>
+    </form> %>
+    <%= form_tag('/users', method: "post") do %>
+        <%= label_tag(:username, 'username:') %> 
+        <%= text_field_tag(:username) %> <br><br/> 
+        <%= label_tag(:email, 'email:') %>  
+        <%= text_field_tag(:email) %> <br><br/> 
+        <%= label_tag(:password, 'password:') %> 
+        <%= password_field_tag(:password) %> <br><br/> 
+        <%= submit_tag('Submit') %> 
+    <% end %> 
 
 
 
